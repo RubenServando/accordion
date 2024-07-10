@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 
 const optionsData = [
-  
   {
     background: 'url(/images/black.png)',
     icon: 'fas fa-walking',
@@ -52,114 +51,117 @@ const optionsData = [
     main: 'Lanzarote',
     sub: 'Pura esencia volcánica',
   },
-  
 ];
 
 const Options: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(99999);
 
+  const handleClick = (index: number) => {
+    setActiveIndex(index === activeIndex ? 99999 : index);
+  };
+
   return (
     <div 
-        className=" 
-            flex 
-            flex-row
-            justify-center 
-            items-center
-            cursor-pointer
-            m-3
-          "
-        >
+      className=" 
+        flex 
+        flex-row
+        justify-center 
+        items-center
+        cursor-pointer
+        m-3
+      "
+    >
       <div 
         className="
-            relative
-            flex 
-            flex-wrap 
-            md:flex-nowrap 
-            items-stretch 
-            w-full 
-            max-w-[1250px] 
-            h-auto 
-            md:h-[340px] 
-            overflow-hidden
-          "
-        >
+          relative
+          flex 
+          flex-wrap 
+          md:flex-nowrap 
+          items-stretch 
+          w-full 
+          max-w-[1250px] 
+          h-auto 
+          md:h-[340px] 
+          overflow-hidden
+        "
+      >
         {optionsData.map((option, index) => (
           <div
             key={index}
             className={`
-                    relative 
-                    overflow-hidden
-                    transition-all
-                    ease-linear
-                    duration-200
-                    flex-grow
-                    mx-1
-                    ${activeIndex === index 
-                        ? 'flex-grow-[4.4] scale-100 max-w-[10] md:rounded-[40px]' 
-                        : 'flex-grow-[1] md:rounded-[40px]'}
-                `}
+              relative 
+              overflow-hidden
+              transition-all
+              ease-linear
+              duration-200
+              flex-grow
+              mx-1
+              ${activeIndex === index 
+                ? 'flex-grow-[4.4] scale-100 max-w-[10] md:rounded-[40px]' 
+                : 'flex-grow-[1] md:rounded-[40px]'}
+            `}
             style={{ backgroundImage: option.background }}
-            onClick={() => setActiveIndex(index)}
-            >
+            onClick={() => handleClick(index)}
+          >
             <div
               className={`
-                    absolute 
-                    flex
-                    items-center
-                    right-0 
-                    transition-all 
-                    duration-500 
-                    ease-out 
-                    ${activeIndex === index ? 'bottom-[20px] left-[20px]' : 'bottom-[10px] left-[10px]'}
-                `}
-              >
+                absolute 
+                flex
+                items-center
+                right-0 
+                transition-all 
+                duration-500 
+                ease-out 
+                ${activeIndex === index ? 'bottom-[20px] left-[20px]' : 'bottom-[10px] left-[10px]'}
+              `}
+            >
               <div 
                 className="
-                    flex items-center 
-                    justify-center 
-                    w-[40px] 
-                    h-[40px] 
-                    rounded-full
-                    bg-yellow-400
-                    text-black
-                  "
-                >
+                  flex items-center 
+                  justify-center 
+                  w-[40px] 
+                  h-[40px] 
+                  rounded-full
+                  bg-yellow-400
+                  text-black
+                "
+              >
                 <i className={option.icon}></i>
               </div>
               <div 
                 className="
-                    flex 
-                    flex-col 
-                    justify-center 
-                    ml-[20px]
-                    text-yellow-400
-                    whitespace-pre
-                  "
-                >
+                  flex 
+                  flex-col 
+                  justify-center 
+                  ml-[20px]
+                  text-yellow-400
+                  whitespace-pre
+                "
+              >
                 <div
                   className={`
-                        relative 
-                        transition-all 
-                        duration-500 
-                        ease-out
-                        ${activeIndex === index ? 'left-0 opacity-100' : 'left-[20px] opacity-0'}
-                    `}
+                    relative 
+                    transition-all 
+                    duration-500 
+                    ease-out
+                    ${activeIndex === index ? 'left-0 opacity-100' : 'left-[20px] opacity-0'}
+                  `}
+                >
+                  <div 
+                    className="
+                      font-bold 
+                      text-[1.2rem]
+                    "
                   >
+                    {option.main}
+                  </div>
                   <div 
                     className="
-                        font-bold 
-                        text-[1.2rem]
-                      "
-                    >
-                        {option.main}
-                    </div>
-                  <div 
-                    className="
-                        transition-delay-100
-                      "
-                    >
-                        {option.sub}
-                    </div>
+                      transition-delay-100
+                    "
+                  >
+                    {option.sub}
+                  </div>
                 </div>
               </div>
             </div>
@@ -171,6 +173,7 @@ const Options: React.FC = () => {
 };
 
 export default Options;
+
 
 // const optionsData = [
 // {
