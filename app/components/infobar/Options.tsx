@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // Asegúrate de que estás usando el componente Image de Next.js
 
 const optionsData = [
   {
@@ -115,7 +116,7 @@ const Options: React.FC = () => {
                 ${activeIndex === index ? 'bottom-[20px] left-[20px]' : 'bottom-[10px] left-[10px]'}
               `}
             >
-              <div 
+              <div
                 className="
                   flex items-center 
                   justify-center 
@@ -165,6 +166,25 @@ const Options: React.FC = () => {
                 </div>
               </div>
             </div>
+            <div className="absolute top-5 left-5 ">
+              {activeIndex === index ? (
+                <Image
+                  alt=""
+                  src="/icon-minus.svg"
+                  width={30}
+                  height={30}
+                  className="h-[30px] w-[30px]"
+                />
+              ) : (
+                <Image
+                  src="/icon-plus.svg"
+                  alt=""
+                  width={30}
+                  height={30}
+                  className="h-[30px] w-[30px]"
+                />
+              )}
+            </div>
           </div>
         ))}
       </div>
@@ -173,6 +193,9 @@ const Options: React.FC = () => {
 };
 
 export default Options;
+
+
+
 
 
 // const optionsData = [
