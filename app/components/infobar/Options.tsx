@@ -166,7 +166,7 @@ const Options: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute top-5 left-5 ">
+            <div className="absolute top-10 left-3 ">
               {activeIndex === index ? (
                 <Image
                   alt=""
